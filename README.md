@@ -94,17 +94,42 @@ The supplied launcher starts training. Visualization examples are in
 
 ### Free-moving animal behavior
 
-Inspect `free-moving/run.sh`, `main.py`, and `visualize.py` before running this
-experiment. The supplied launcher currently enables visualization.
-Its active command requests a 64-dimensional MCD checkpoint, whereas the bundled
-MCD checkpoint directory is named `A_f16_task78_ctrl_critic_nohidden`. Select a
-checkpoint and feature dimension that agree before running visualization.
+The experiment uses separate training and test replay buffers, with
+16-dimensional states and 16-dimensional displacement actions:
 
-The supplied package includes `kms/test_data_all.pth` as a separate download, but
-does **not** include `kms/train_data_all.pth`, which `main.py` expects for training
-with the `kms` dataset. Restoring the four large files is therefore not enough
-to train every experiment from scratch. Additional artifacts referenced by
-individual analysis routines may also need to be generated or provided.
+| Path within `free-moving/` | Role | Transitions |
+| --- | --- | ---: |
+| `kms/train_data_all.pth` | Representation learning through `main.py` | 515,120 |
+| `kms/test_data_all.pth` | Held-out analysis through `visualize.py` | 128,781 |
+
+Both buffers have been located and checked in the development workspace.
+The test buffer is available through the Hugging Face download above; public
+release of the additional training buffer is pending confirmation. Until it is
+published, provide `kms/train_data_all.pth` separately at the path shown above.
+
+To select training, comment out the entire `python visualize.py` block in
+`free-moving/run.sh` and uncomment the `python main.py --alg spedersac` block
+above it, including all continuation lines. Then run:
+
+```bash
+cd free-moving
+bash run.sh
+```
+
+**Training-call note for this snapshot:** the loop in `main.py` currently passes
+`seq_len=kwargs['seq_len']` for every algorithm, but the MCD branch does not
+define this option and its training method does not accept it. For MCD, the call
+must instead be `agent.train(expert_buffer, batch_size=args.batch_size)`.
+Sequence-based baseline methods retain their own `seq_len` argument. This
+documentation update does not modify the experiment source or start training.
+
+To select visualization instead, enable the `python visualize.py` block and
+disable the training block. Match `--dir`, `--feature_dim`, `--actor_type`, and
+the requested checkpoint step to the model being loaded. The bundled MCD
+checkpoint has 16 features, whereas the default visualization command requests
+64; the training and visualization examples also specify different actor types.
+Adjust these settings to match the checkpoint before visualization. Additional
+artifacts used by individual analysis routines may need to be generated first.
 
 No new license is selected by this packaging step. Existing third-party notices
 are retained where present; consult the authors regarding reuse permissions.
