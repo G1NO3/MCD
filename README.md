@@ -131,5 +131,8 @@ checkpoint has 16 features, whereas the default visualization command requests
 Adjust these settings to match the checkpoint before visualization. Additional
 artifacts used by individual analysis routines may need to be generated first.
 
-No new license is selected by this packaging step. Existing third-party notices
-are retained where present; consult the authors regarding reuse permissions.
+## License
+
+Unless otherwise noted, this repository is licensed under the
+[Creative Commons Attribution 4.0 International License (CC BY 4.0)](LICENSE).
+Third-party components retain their respective licenses and attribution notices.
