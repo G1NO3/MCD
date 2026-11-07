@@ -37,10 +37,11 @@ have not been validated as part of this repository upload.
 
 ## Large data files
 
-Files larger than 10 MiB are separated from Git history. The intended dataset
-repository is [`GeertWang/MCD`](https://huggingface.co/datasets/GeertWang/MCD).
-**The Hugging Face upload is pending authentication; the download command below
-requires that dataset to have been published.**
+Files larger than 10 MiB are separated from Git history and available in the
+public dataset repository
+[`GeertWang/MCD`](https://huggingface.co/datasets/GeertWang/MCD).
+The four files preserve their original paths, and their remote byte sizes and
+SHA-256 checksums are checked against `data_manifest.json`.
 
 | File | Size (MiB) |
 | --- | ---: |
@@ -49,7 +50,7 @@ requires that dataset to have been published.**
 | `labyrinth/model/labyrinth/spedersac/replay_buffer_labyrinth.pkl` | 241.1 |
 | `labyrinth/model/labyrinth/spedersac/replay_buffer_random_labyrinth.pkl` | 183.1 |
 
-After the dataset is available, run from the repository root:
+Run from the repository root to restore and verify these files:
 
 ```bash
 pip install huggingface_hub
