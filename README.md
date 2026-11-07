@@ -16,14 +16,10 @@ Internal implementation names such as `spedersac` are retained from that package
 | `data_manifest.json` | Original paths, byte sizes, and SHA-256 hashes of separately hosted large files. |
 | `download_data.py` | Downloader that restores those files to their expected paths and verifies their hashes. |
 
-This release contains the supplied supplementary package, not every experiment
-or camera-ready analysis in the development workspace. In particular, it does
-not include the later macaque-drawing analysis.
 
 ## Environment
 
 The supplied environment targets Linux, Python 3.8, PyTorch 1.12.0, and CUDA 11.6.
-It is an exported research environment, not a minimal portable dependency list.
 
 ```bash
 conda env create -f environment.yaml
@@ -99,12 +95,7 @@ The supplied launcher starts training. Visualization examples are in
 ### Free-moving animal behavior
 
 Inspect `free-moving/run.sh`, `main.py`, and `visualize.py` before running this
-experiment. The supplied launcher currently enables visualization, not training.
-To start MCD training, comment out the entire `python visualize.py` command block
-in `run.sh` and uncomment the `python main.py --alg spedersac` block above it,
-including all continuation lines. Then run `bash run.sh` from `free-moving/`.
-Training requires `kms/train_data_all.pth`, as noted below.
-
+experiment. The supplied launcher currently enables visualization.
 Its active command requests a 64-dimensional MCD checkpoint, whereas the bundled
 MCD checkpoint directory is named `A_f16_task78_ctrl_critic_nohidden`. Select a
 checkpoint and feature dimension that agree before running visualization.
@@ -114,16 +105,6 @@ does **not** include `kms/train_data_all.pth`, which `main.py` expects for train
 with the `kms` dataset. Restoring the four large files is therefore not enough
 to train every experiment from scratch. Additional artifacts referenced by
 individual analysis routines may also need to be generated or provided.
-
-## Checks performed for this upload
-
-- Python syntax parsing passed for all 168 supplied Python source files.
-- The three experiment launchers passed `bash -n` shell syntax checking.
-- A scan for common credential formats found no matches; this is not a guarantee
-  that every possible secret format has been detected.
-- Nested Git metadata, Python bytecode caches, and macOS metadata are excluded.
-- Experiment source files are preserved; full training, notebook execution,
-  environment installation, and quantitative reproduction were not rerun.
 
 No new license is selected by this packaging step. Existing third-party notices
 are retained where present; consult the authors regarding reuse permissions.
