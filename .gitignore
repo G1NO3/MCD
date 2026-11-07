@@ -1,0 +1,14 @@
+# Local caches and editor metadata
+__pycache__/
+*.py[cod]
+.DS_Store
+.ipynb_checkpoints/
+.cache/
+.env
+.env.*
+
+# Large files are distributed separately on Hugging Face.
+/free-moving/kms/test_data_all.pth
+/gridworld/model/RandomGridWorld-v0/spedersac/replay_buffer_VI_onehotsa.pkl
+/labyrinth/model/labyrinth/spedersac/replay_buffer_labyrinth.pkl
+/labyrinth/model/labyrinth/spedersac/replay_buffer_random_labyrinth.pkl

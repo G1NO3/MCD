@@ -1,0 +1,26 @@
+{
+  "repo_id": "GeertWang/MCD",
+  "repo_type": "dataset",
+  "files": [
+    {
+      "path": "free-moving/kms/test_data_all.pth",
+      "size_bytes": 74518191,
+      "sha256": "be4712b6270c89d885c9861a6666ce19fd1feacef362c381f3ad1479c3aa8cd8"
+    },
+    {
+      "path": "gridworld/model/RandomGridWorld-v0/spedersac/replay_buffer_VI_onehotsa.pkl",
+      "size_bytes": 30718255,
+      "sha256": "62fefdc7f2f0c0f9cf148c1227e24ab494e692c091e9b0e18f900e640e542015"
+    },
+    {
+      "path": "labyrinth/model/labyrinth/spedersac/replay_buffer_labyrinth.pkl",
+      "size_bytes": 252812591,
+      "sha256": "30867c9bfb6b1c1279dddc671726fe1aae364d19844ad8f75276f5af63945d37"
+    },
+    {
+      "path": "labyrinth/model/labyrinth/spedersac/replay_buffer_random_labyrinth.pkl",
+      "size_bytes": 191970927,
+      "sha256": "905e148e755611072bfa1bcdc5f5daedb4020142021e143d0d8d51e104474859"
+    }
+  ]
+}
