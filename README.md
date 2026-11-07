@@ -116,13 +116,6 @@ cd free-moving
 bash run.sh
 ```
 
-**Training-call note for this snapshot:** the loop in `main.py` currently passes
-`seq_len=kwargs['seq_len']` for every algorithm, but the MCD branch does not
-define this option and its training method does not accept it. For MCD, the call
-must instead be `agent.train(expert_buffer, batch_size=args.batch_size)`.
-Sequence-based baseline methods retain their own `seq_len` argument. This
-documentation update does not modify the experiment source or start training.
-
 To select visualization instead, enable the `python visualize.py` block and
 disable the training block. Match `--dir`, `--feature_dim`, `--actor_type`, and
 the requested checkpoint step to the model being loaded. The bundled MCD
