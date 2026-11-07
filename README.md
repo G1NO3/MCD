@@ -100,6 +100,11 @@ The supplied launcher starts training. Visualization examples are in
 
 Inspect `free-moving/run.sh`, `main.py`, and `visualize.py` before running this
 experiment. The supplied launcher currently enables visualization, not training.
+To start MCD training, comment out the entire `python visualize.py` command block
+in `run.sh` and uncomment the `python main.py --alg spedersac` block above it,
+including all continuation lines. Then run `bash run.sh` from `free-moving/`.
+Training requires `kms/train_data_all.pth`, as noted below.
+
 Its active command requests a 64-dimensional MCD checkpoint, whereas the bundled
 MCD checkpoint directory is named `A_f16_task78_ctrl_critic_nohidden`. Select a
 checkpoint and feature dimension that agree before running visualization.

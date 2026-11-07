@@ -1,5 +1,5 @@
-# python main.py --alg opal --env kms --feature_dim 64 \
-#                  --max_timesteps 1000000 --dir A_f64_task78_lr1e-4_opal_reg \
+# python main.py --alg spedersac --env kms --feature_dim 64 \
+#                  --max_timesteps 1000000 --dir A_f64_task78_ctrl_critic_nohidden \
 #                  --eval_freq 1000 --discount 0.9 --batch_size 16 --lasso_coef 0.01 --feature_lr 0.0001 \
 #                  --actor_type gaussian
 # Caution
