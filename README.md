@@ -36,11 +36,12 @@ have not been validated as part of this repository upload.
 Files larger than 10 MiB are separated from Git history and available in the
 public dataset repository
 [`GeertWang/MCD`](https://huggingface.co/datasets/GeertWang/MCD).
-The four files preserve their original paths, and their remote byte sizes and
+The five files preserve their original paths, and their remote byte sizes and
 SHA-256 checksums are checked against `data_manifest.json`.
 
 | File | Size (MiB) |
 | --- | ---: |
+| `free-moving/kms/train_data_all.pth` | 283.9 |
 | `free-moving/kms/test_data_all.pth` | 71.1 |
 | `gridworld/model/RandomGridWorld-v0/spedersac/replay_buffer_VI_onehotsa.pkl` | 29.3 |
 | `labyrinth/model/labyrinth/spedersac/replay_buffer_labyrinth.pkl` | 241.1 |
@@ -102,10 +103,9 @@ The experiment uses separate training and test replay buffers, with
 | `kms/train_data_all.pth` | Representation learning through `main.py` | 515,120 |
 | `kms/test_data_all.pth` | Held-out analysis through `visualize.py` | 128,781 |
 
-Both buffers have been located and checked in the development workspace.
-The test buffer is available through the Hugging Face download above; public
-release of the additional training buffer is pending confirmation. Until it is
-published, provide `kms/train_data_all.pth` separately at the path shown above.
+Both buffers are available in the public Hugging Face dataset linked above.
+Run `python download_data.py` from the repository root to restore both files to
+their expected paths and verify their checksums before training or analysis.
 
 To select training, comment out the entire `python visualize.py` block in
 `free-moving/run.sh` and uncomment the `python main.py --alg spedersac` block

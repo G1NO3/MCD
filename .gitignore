@@ -8,6 +8,7 @@ __pycache__/
 .env.*
 
 # Large files are distributed separately on Hugging Face.
+/free-moving/kms/train_data_all.pth
 /free-moving/kms/test_data_all.pth
 /gridworld/model/RandomGridWorld-v0/spedersac/replay_buffer_VI_onehotsa.pkl
 /labyrinth/model/labyrinth/spedersac/replay_buffer_labyrinth.pkl

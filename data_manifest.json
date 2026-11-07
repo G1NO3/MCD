@@ -3,6 +3,11 @@
   "repo_type": "dataset",
   "files": [
     {
+      "path": "free-moving/kms/train_data_all.pth",
+      "size_bytes": 297740911,
+      "sha256": "a39c8f822ffee5c014b8ab8b95225720d78a62c85fd711077592e9d77f72d73d"
+    },
+    {
       "path": "free-moving/kms/test_data_all.pth",
       "size_bytes": 74518191,
       "sha256": "be4712b6270c89d885c9861a6666ce19fd1feacef362c381f3ad1479c3aa8cd8"
